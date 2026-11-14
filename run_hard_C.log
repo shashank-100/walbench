@@ -1,0 +1,22 @@
+PASS from_scratch               hidden 300/300 turns= 5   31.2s
+PASS hard_00                    hidden 300/300 turns= 8   32.4s
+PASS hard_01                    hidden 300/300 turns= 7   28.1s
+PASS hard_02                    hidden 300/300 turns= 9   34.8s
+PASS hard_03                    hidden 300/300 turns= 6   23.9s
+PASS hard_04                    hidden 300/300 turns=10   44.4s
+PASS hard_05                    hidden 300/300 turns= 7   28.9s
+PASS hard_06                    hidden 300/300 turns= 9   30.0s
+PASS hard_07                    hidden 300/300 turns= 5   27.9s
+PASS hard_08                    hidden 300/300 turns= 7   29.1s
+PASS hard_09                    hidden 300/300 turns= 6   24.7s
+{
+ "tier": "hard",
+ "arm": "with_check",
+ "model": "claude-opus-5-5",
+ "tasks": 11,
+ "solved": 11,
+ "solve_rate": 1.0,
+ "mean_turns": 7.18,
+ "mean_tokens": 28302,
+ "total_cost_usd": 0.83
+}

@@ -1,0 +1,45 @@
+PASS abort_ends_log             hidden 300/300 turns= 8   27.2s
+PASS applies_aborted            hidden 300/300 turns= 4   15.0s
+PASS applies_uncommitted        hidden 300/300 turns= 4   15.9s
+PASS commit_flushes_all         hidden 300/300 turns= 4   15.0s
+PASS commit_reorders_ops        hidden 300/300 turns= 7   23.6s
+PASS delete_lost                hidden 300/300 turns= 5   18.1s
+PASS double_replay              hidden 300/300 turns= 5   20.4s
+PASS empty_value_deletes        hidden 300/300 turns= 5   20.4s
+PASS incr_overwrites            hidden 300/300 turns= 5   19.4s
+PASS no_checksum                hidden 300/300 turns= 4   16.4s
+PASS payload_off_by_one         hidden 300/300 turns= 5   17.4s
+PASS skips_checkpoint_boundary  hidden 300/300 turns= 5   17.9s
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/shashank/agent-projects/walbench/src/walbench/agent.py", line 85, in <module>
+    main()
+  File "/Users/shashank/agent-projects/walbench/src/walbench/agent.py", line 71, in main
+    for r in ex.map(lambda t: run_one(t, a.arm, a.model, a.effort, root), tasks):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shashank/.local/share/uv/python/cpython-3.12.9-macos-aarch64-none/lib/python3.12/concurrent/futures/_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shashank/.local/share/uv/python/cpython-3.12.9-macos-aarch64-none/lib/python3.12/concurrent/futures/_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shashank/.local/share/uv/python/cpython-3.12.9-macos-aarch64-none/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/shashank/.local/share/uv/python/cpython-3.12.9-macos-aarch64-none/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/Users/shashank/.local/share/uv/python/cpython-3.12.9-macos-aarch64-none/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shashank/agent-projects/walbench/src/walbench/agent.py", line 71, in <lambda>
+    for r in ex.map(lambda t: run_one(t, a.arm, a.model, a.effort, root), tasks):
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shashank/agent-projects/walbench/src/walbench/agent.py", line 31, in run_one
+    shutil.copy(task_dir / "recovery.py", d / "recovery.py")
+  File "/Users/shashank/.local/share/uv/python/cpython-3.12.9-macos-aarch64-none/lib/python3.12/shutil.py", line 435, in copy
+    copyfile(src, dst, follow_symlinks=follow_symlinks)
+  File "/Users/shashank/.local/share/uv/python/cpython-3.12.9-macos-aarch64-none/lib/python3.12/shutil.py", line 260, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/shashank/agent-projects/walbench/tasks/torn_tail_raises/recovery.py'

@@ -1,0 +1,24 @@
+PASS abort_ends_log             hidden 300/300 turns= 6   17.9s
+PASS applies_aborted            hidden 300/300 turns= 5   14.2s
+PASS applies_uncommitted        hidden 300/300 turns= 5   17.0s
+PASS commit_flushes_all         hidden 300/300 turns= 5   14.2s
+PASS commit_reorders_ops        hidden 300/300 turns= 5   14.6s
+PASS delete_lost                hidden 300/300 turns= 5   13.0s
+PASS double_replay              hidden 300/300 turns= 5   15.0s
+PASS empty_value_deletes        hidden 300/300 turns= 5   13.3s
+PASS incr_overwrites            hidden 300/300 turns= 5   13.3s
+PASS no_checksum                hidden 300/300 turns= 5   13.4s
+PASS payload_off_by_one         hidden 300/300 turns= 5   13.2s
+PASS skips_checkpoint_boundary  hidden 300/300 turns= 5   15.1s
+PASS torn_tail_raises           hidden 300/300 turns= 5   13.0s
+PASS trusts_tmp_checkpoint      hidden 300/300 turns= 5   14.3s
+{
+ "arm": "read_only",
+ "model": "claude-opus-5-5",
+ "tasks": 14,
+ "solved": 14,
+ "solve_rate": 1.0,
+ "mean_turns": 5.07,
+ "mean_tokens": 11890,
+ "total_cost_usd": 0.57
+}

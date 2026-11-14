@@ -1,0 +1,191 @@
+[
+ {
+  "id": "applies_uncommitted",
+  "report": "After a crash, values written by transactions that never committed show up in the store.",
+  "buggy_passes": 74,
+  "total": 300
+ },
+ {
+  "id": "applies_aborted",
+  "report": "Transactions that were explicitly aborted reappear after a restart.",
+  "buggy_passes": 223,
+  "total": 300
+ },
+ {
+  "id": "trusts_tmp_checkpoint",
+  "report": "If the machine dies while a checkpoint is being written, the next startup sometimes fails outright.",
+  "buggy_passes": 288,
+  "total": 300
+ },
+ {
+  "id": "no_checksum",
+  "report": "After a power loss, recovery sometimes crashes with a JSON error or returns garbled values.",
+  "buggy_passes": 280,
+  "total": 300
+ },
+ {
+  "id": "torn_tail_raises",
+  "report": "After a power loss during a write, startup fails with 'truncated wal' and the store will not open.",
+  "buggy_passes": 221,
+  "total": 300
+ },
+ {
+  "id": "double_replay",
+  "report": "Counters are sometimes higher than they should be after a crash that happened around a checkpoint.",
+  "buggy_passes": 295,
+  "total": 300
+ },
+ {
+  "id": "commit_reorders_ops",
+  "report": "Inside one transaction, deleting a key and then writing it again sometimes leaves the key missing after recovery.",
+  "buggy_passes": 293,
+  "total": 300
+ },
+ {
+  "id": "delete_lost",
+  "report": "Keys that were deleted come back after a restart.",
+  "buggy_passes": 248,
+  "total": 300
+ },
+ {
+  "id": "empty_value_deletes",
+  "report": "Keys whose value was set to an empty string disappear after recovery.",
+  "buggy_passes": 232,
+  "total": 300
+ },
+ {
+  "id": "abort_ends_log",
+  "report": "Everything written after an aborted transaction is lost after a restart.",
+  "buggy_passes": 230,
+  "total": 300
+ },
+ {
+  "id": "commit_flushes_all",
+  "report": "When one transaction commits, writes from other still-open transactions also survive a crash.",
+  "buggy_passes": 230,
+  "total": 300
+ },
+ {
+  "id": "payload_off_by_one",
+  "report": "After any restart, only what was in the last checkpoint is there; everything written since is gone.",
+  "buggy_passes": 85,
+  "total": 300
+ },
+ {
+  "id": "incr_overwrites",
+  "report": "Counters come back as small numbers after recovery, as if only the last increment counted.",
+  "buggy_passes": 178,
+  "total": 300
+ },
+ {
+  "id": "skips_checkpoint_boundary",
+  "report": "The very first write after each checkpoint is sometimes missing after a crash.",
+  "buggy_passes": 169,
+  "total": 300
+ },
+ {
+  "id": "hard_00",
+  "bugs": [
+   "delete_lost",
+   "empty_value_deletes",
+   "skips_checkpoint_boundary"
+  ],
+  "buggy_passes": 132,
+  "total": 300
+ },
+ {
+  "id": "hard_01",
+  "bugs": [
+   "delete_lost",
+   "empty_value_deletes",
+   "abort_ends_log"
+  ],
+  "buggy_passes": 168,
+  "total": 300
+ },
+ {
+  "id": "hard_02",
+  "bugs": [
+   "trusts_tmp_checkpoint",
+   "no_checksum",
+   "empty_value_deletes"
+  ],
+  "buggy_passes": 212,
+  "total": 300
+ },
+ {
+  "id": "hard_03",
+  "bugs": [
+   "delete_lost",
+   "abort_ends_log",
+   "commit_flushes_all"
+  ],
+  "buggy_passes": 174,
+  "total": 300
+ },
+ {
+  "id": "hard_04",
+  "bugs": [
+   "applies_aborted",
+   "trusts_tmp_checkpoint",
+   "incr_overwrites"
+  ],
+  "buggy_passes": 138,
+  "total": 300
+ },
+ {
+  "id": "hard_05",
+  "bugs": [
+   "trusts_tmp_checkpoint",
+   "torn_tail_raises",
+   "delete_lost"
+  ],
+  "buggy_passes": 175,
+  "total": 300
+ },
+ {
+  "id": "hard_06",
+  "bugs": [
+   "applies_aborted",
+   "empty_value_deletes",
+   "payload_off_by_one"
+  ],
+  "buggy_passes": 85,
+  "total": 300
+ },
+ {
+  "id": "hard_07",
+  "bugs": [
+   "applies_uncommitted",
+   "abort_ends_log",
+   "commit_flushes_all"
+  ],
+  "buggy_passes": 77,
+  "total": 300
+ },
+ {
+  "id": "hard_08",
+  "bugs": [
+   "abort_ends_log",
+   "commit_flushes_all",
+   "payload_off_by_one"
+  ],
+  "buggy_passes": 85,
+  "total": 300
+ },
+ {
+  "id": "hard_09",
+  "bugs": [
+   "applies_uncommitted",
+   "trusts_tmp_checkpoint",
+   "abort_ends_log"
+  ],
+  "buggy_passes": 74,
+  "total": 300
+ },
+ {
+  "id": "from_scratch",
+  "buggy_passes": 0,
+  "total": 300
+ }
+]
